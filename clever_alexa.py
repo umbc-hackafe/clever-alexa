@@ -22,8 +22,8 @@ def end(request):
 
 @skill.intent("Chat")
 def chat(request):
-    if request.slots.get("Text"):
-        return request.response(speech=cleverbot.ask(request.slots.get("Text")),
+    if request.intent.slots.get("Text"):
+        return request.response(speech=cleverbot.ask(request.intent.slots.get("Text")),
                                 reprompt="What?")
     else:
         return request.response(speech="What?", reprompt="What?")
